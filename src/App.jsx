@@ -6,7 +6,9 @@ import * as THREE from 'three'
 function Model() {
   const [loadError, setLoadError] = useState(false)
   
-  const { scene } = useGLTF('https://h2dtjlpgvx.ufs.sh/f/qM02Ejw6Lrz3vYiv3c5Skma785l6VbX29KeWRFrQzuCyGcjH', (loader) => {
+  // const { scene } = useGLTF('https://h2dtjlpgvx.ufs.sh/f/qM02Ejw6Lrz3vYiv3c5Skma785l6VbX29KeWRFrQzuCyGcjH', (loader) => {
+  const { scene } = useGLTF('https://h2dtjlpgvx.ufs.sh/f/qM02Ejw6Lrz3iZZeYjyQmibyCxwMn8oNgZdEWqeA47P3czIK', (loader) => {
+  // const { scene } = useGLTF('./3.glb', (loader) => {
     loader.onError = (error) => {
       console.error('GLB Loading Error:', error)
       console.error('Failed to load GLB from UploadThing. Check if the file exists and is accessible.')
@@ -112,11 +114,11 @@ function Character({ position, color = '#ff6b6b', isClickable = false, onHover, 
 // Walking characters component
 function WalkingCharacters({ onRedCharacterClick }) {
   const characters = [
-    { position: [0, 0, 3], color: '#ff6b6b', isClickable: true }, // red
-    { position: [3, 0, -9], color: '#4ecdc4', isClickable: false }, // teal
-    { position: [10, 0, -5], color: '#45b7d1', isClickable: false }, // blue
-    { position: [-3, 0, -20], color: '#96ceb4', isClickable: false }, // green
-    { position: [8, 0, -14.5], color: '#feca57', isClickable: false }, // yellow
+    { position: [0, 2, 3], color: '#ff6b6b', isClickable: true }, // red
+    { position: [3, 2, -6.5], color: '#4ecdc4', isClickable: false }, // teal
+    { position: [10, 2, -5], color: '#45b7d1', isClickable: false }, // blue
+    { position: [-3, 2, -13], color: '#96ceb4', isClickable: false }, // green
+    { position: [8, 2, -14.5], color: '#feca57', isClickable: false }, // yellow
   ]
 
   return (
