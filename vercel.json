@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "src/**/*.js": {
-      "maxDuration": 30
-    }
-  },
   "headers": [
     {
       "source": "/(.*\\.glb)",
