@@ -6,10 +6,10 @@ import * as THREE from 'three'
 function Model() {
   const [loadError, setLoadError] = useState(false)
   
-  const { scene } = useGLTF('/city.glb', (loader) => {
+  const { scene } = useGLTF('https://h2dtjlpgvx.ufs.sh/f/qM02Ejw6Lrz3vYiv3c5Skma785l6VbX29KeWRFrQzuCyGcjH', (loader) => {
     loader.onError = (error) => {
       console.error('GLB Loading Error:', error)
-      console.error('Failed to load city.glb. Check if the file exists and is accessible.')
+      console.error('Failed to load GLB from UploadThing. Check if the file exists and is accessible.')
       setLoadError(true)
     }
   })
