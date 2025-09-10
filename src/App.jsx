@@ -4,7 +4,31 @@ import { Suspense, useState, useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
 function Model() {
-  const { scene } = useGLTF('/city.glb')
+  const [loadError, setLoadError] = useState(false)
+  
+  const { scene } = useGLTF('/city.glb', (loader) => {
+    loader.onError = (error) => {
+      console.error('GLB Loading Error:', error)
+      console.error('Failed to load city.glb. Check if the file exists and is accessible.')
+      setLoadError(true)
+    }
+  })
+  
+  if (loadError) {
+    return (
+      <group>
+        <mesh position={[0, 0, 0]}>
+          <boxGeometry args={[10, 10, 10]} />
+          <meshStandardMaterial color="#ff0000" />
+        </mesh>
+        <mesh position={[0, 5, 0]}>
+          <boxGeometry args={[2, 2, 2]} />
+          <meshStandardMaterial color="#ffff00" />
+        </mesh>
+      </group>
+    )
+  }
+  
   return <primitive object={scene} scale={1} />
 }
 
